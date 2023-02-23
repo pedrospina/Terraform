@@ -1,6 +1,6 @@
 resource "oci_core_instance" "Prueba_Compute" {
   availability_domain = lookup(data.oci_identity_availability_domains.ADs.availability_domains[1], "name")
-  compartment_id      = oci_identity_compartment.CCCCompartment.id
+  compartment_id      = oci_identity_compartment.Compartment.id
   display_name        = "Prueba_Compute"
   shape               = "VM.Standard.E3.Flex"
 
@@ -14,7 +14,7 @@ resource "oci_core_instance" "Prueba_Compute" {
   }
 
   create_vnic_details {
-    subnet_id        = oci_core_subnet.CCCBackendSubnet.id
+    subnet_id        = oci_core_subnet.BackendSubnet.id
     assign_public_ip = false
     private_ip       = "192.168.0.2"
   }
@@ -27,7 +27,7 @@ resource "oci_core_instance" "Prueba_Compute" {
 
 resource "oci_core_instance" "WebServer_prueba" {
   availability_domain = lookup(data.oci_identity_availability_domains.ADs.availability_domains[1], "name")
-  compartment_id      = oci_identity_compartment.CCCCompartment.id
+  compartment_id      = oci_identity_compartment.Compartment.id
   display_name        = "WebServer_pruebas"
   shape               = "VM.Standard.E3.Flex"
 
@@ -41,7 +41,7 @@ resource "oci_core_instance" "WebServer_prueba" {
   }
 
   create_vnic_details {
-    subnet_id        = oci_core_subnet.CCCWebSubnet.id
+    subnet_id        = oci_core_subnet.WebSubnet.id
     assign_public_ip = true
   }
 

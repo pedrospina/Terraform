@@ -1,7 +1,7 @@
 resource "oci_core_security_list" "SecurityList1_prueba" {
-  compartment_id = oci_identity_compartment.CCCCompartment.id
+  compartment_id = oci_identity_compartment.Compartment.id
   display_name   = "SecurityList_prueba"
-  vcn_id         = oci_core_virtual_network.CCCVCN.id
+  vcn_id         = oci_core_virtual_network.VCN.id
 
   egress_security_rules {
     protocol    = "6"
@@ -27,9 +27,9 @@ resource "oci_core_security_list" "SecurityList1_prueba" {
 }
 
 resource "oci_core_security_list" "SecurityList2_prueba" {
-  compartment_id = oci_identity_compartment.CCCCompartment.id
+  compartment_id = oci_identity_compartment.Compartment.id
   display_name   = "SecurityListPrueba"
-  vcn_id         = oci_core_virtual_network.CCCVCN.id
+  vcn_id         = oci_core_virtual_network.VCN.id
 
   egress_security_rules {
     protocol    = "6"
