@@ -8,7 +8,7 @@ data "oci_core_images" "InstanceImageOCID" {
   operating_system_version = var.linux_os_version
 
   filter {
-    name   = "display_name"
+    name   = "display_name:prueba"
     values = ["^.*Oracle[^G]*$"]
     regex  = true
   }

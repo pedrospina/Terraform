@@ -8,13 +8,13 @@ variable "private_key_oci" {}
 variable "public_key_oci" {}
 
 variable "VCN-CIDRs" {
-  type = list(string)
-  default = ["10.0.0.0/16","192.168.0.0/16"]
-#  default = ["10.0.0.0/16","192.168.0.0/24"] 
-  }
+  type    = list(string)
+  default = ["10.0.0.0/16", "192.168.0.0/16"]
+  #  default = ["10.0.0.0/16","192.168.0.0/24"] 
+}
 
 variable "BackendSubnet-CIDR" {
-#  default = "192.168.0.0/24"
+  #  default = "192.168.0.0/24"
   default = "192.168.0.0/30"
 }
 
@@ -37,5 +37,5 @@ variable "linux_os_version" {
 }
 
 variable "service_ports" {
-  default = [80,443,22]
+  default = [80, 443, 22]
 }

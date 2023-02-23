@@ -1,21 +1,55 @@
-resource "oci_core_route_table" "CCCRouteTableViaIGW" {
-    compartment_id = oci_identity_compartment.CCCCompartment.id
-    vcn_id = oci_core_virtual_network.CCCVCN.id
-    display_name = "CCCRouteTableViaIGW"
-    route_rules {
-        destination = "0.0.0.0/0"
-        destination_type  = "CIDR_BLOCK"
-        network_entity_id = oci_core_internet_gateway.CCCInternetGateway.id
+resource "oci_core_security_list" "SecurityList1_prueba" {
+  compartment_id = oci_identity_compartment.CCCCompartment.id
+  display_name   = "SecurityList_prueba"
+  vcn_id         = oci_core_virtual_network.CCCVCN.id
+
+  egress_security_rules {
+    protocol    = "6"
+    destination = "0.0.0.0/0"
+  }
+
+  dynamic "ingress_security_rules" {
+    for_each = var.service_ports
+    content {
+      protocol = "6"
+      source   = "0.0.0.0/0"
+      tcp_options {
+        max = ingress_security_rules.value
+        min = ingress_security_rules.value
+      }
     }
+  }
+
+  ingress_security_rules {
+    protocol = "6"
+    source   = var.VCN-CIDRs[0]
+  }
 }
 
-resource "oci_core_route_table" "CCCRouteTableViaNAT" {
-    compartment_id = oci_identity_compartment.CCCCompartment.id
-    vcn_id = oci_core_virtual_network.CCCVCN.id
-    display_name = "CCCRouteTableViaNAT"
-    route_rules {
-        destination = "0.0.0.0/0"
-        destination_type  = "CIDR_BLOCK"
-        network_entity_id = oci_core_nat_gateway.CCCNATGateway.id
+resource "oci_core_security_list" "SecurityList2_prueba" {
+  compartment_id = oci_identity_compartment.CCCCompartment.id
+  display_name   = "SecurityListPrueba"
+  vcn_id         = oci_core_virtual_network.CCCVCN.id
+
+  egress_security_rules {
+    protocol    = "6"
+    destination = "0.0.0.0/0"
+  }
+
+  dynamic "ingress_security_rules" {
+    for_each = var.service_ports
+    content {
+      protocol = "6"
+      source   = "0.0.0.0/0"
+      tcp_options {
+        max = ingress_security_rules.value
+        min = ingress_security_rules.value
+      }
     }
+  }
+
+  ingress_security_rules {
+    protocol = "6"
+    source   = var.VCN-CIDRs[1]
+  }
 }
