@@ -1,7 +1,7 @@
-resource "oci_core_dhcp_options" "CCCDhcpOptions1" {
+resource "oci_core_dhcp_options" "DhcpOptions1_prueba" {
   compartment_id = oci_identity_compartment.CCCCompartment.id
   vcn_id         = oci_core_virtual_network.CCCVCN.id
-  display_name   = "CCCDHCPOptions1_prueba"
+  display_name   = "DHCPOptions1_prueba"
 
   // required
   options {

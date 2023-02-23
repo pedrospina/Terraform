@@ -25,10 +25,10 @@ resource "oci_core_instance" "Prueba_Compute" {
   }
 }
 
-resource "oci_core_instance" "CCCWebServer" {
+resource "oci_core_instance" "WebServer_prueba" {
   availability_domain = lookup(data.oci_identity_availability_domains.ADs.availability_domains[1], "name")
   compartment_id      = oci_identity_compartment.CCCCompartment.id
-  display_name        = "CCCWebServer_pruebas"
+  display_name        = "WebServer_pruebas"
   shape               = "VM.Standard.E3.Flex"
 
   source_details {

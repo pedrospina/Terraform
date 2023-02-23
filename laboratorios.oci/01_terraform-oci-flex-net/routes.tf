@@ -1,7 +1,7 @@
-resource "oci_core_route_table" "CCCRouteTableViaIGW" {
+resource "oci_core_route_table" "RouteTableViaIGW_prueba" {
   compartment_id = oci_identity_compartment.CCCCompartment.id
   vcn_id         = oci_core_virtual_network.CCCVCN.id
-  display_name   = "CCCRouteTableViaIGW"
+  display_name   = "RouteTableViaIGW_prueba"
   route_rules {
     destination       = "0.0.0.0/0"
     destination_type  = "CIDR_BLOCK"
@@ -9,10 +9,10 @@ resource "oci_core_route_table" "CCCRouteTableViaIGW" {
   }
 }
 
-resource "oci_core_route_table" "CCCRouteTableViaNAT" {
+resource "oci_core_route_table" "RouteTableViaNAT_prueba" {
   compartment_id = oci_identity_compartment.CCCCompartment.id
   vcn_id         = oci_core_virtual_network.CCCVCN.id
-  display_name   = "CCCRouteTableViaNAT"
+  display_name   = "RouteTableViaNAT_prueba"
   route_rules {
     destination       = "0.0.0.0/0"
     destination_type  = "CIDR_BLOCK"

@@ -1,6 +1,6 @@
 resource "oci_core_security_list" "CCCSecurityList1" {
   compartment_id = oci_identity_compartment.CCCCompartment.id
-  display_name   = "CCCSecurityList"
+  display_name   = "SecurityList_prueba"
   vcn_id         = oci_core_virtual_network.CCCVCN.id
 
   egress_security_rules {
@@ -28,7 +28,7 @@ resource "oci_core_security_list" "CCCSecurityList1" {
 
 resource "oci_core_security_list" "CCCSecurityList2" {
   compartment_id = oci_identity_compartment.CCCCompartment.id
-  display_name   = "CCCSecurityList"
+  display_name   = "SecurityListPrueba"
   vcn_id         = oci_core_virtual_network.CCCVCN.id
 
   egress_security_rules {
