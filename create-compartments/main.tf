@@ -1,9 +1,8 @@
-resource "oci_identity_compartment" "test_compartment" {
-  #requerid
-  compartment_id = data.oci_identity_compartments.tech.compartments[0].id
-  description    = "Este es el primer compartment"
-  name           = "lab_workshop_pedro"
-
-  #Optional
-  freeform_tags = { "Department" = "Laboratorio" }
+module "comp_workshop" {
+   source ="../modules/compartment"
+    
+   cmp_id = var.tenancy_ocid
+   cmp_name = var.name
+   cmp_parent_name = var.parent_name
 }
+
