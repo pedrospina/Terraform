@@ -1,11 +1,18 @@
-variable "tenancy_ocid" {}
-variable "user_ocid" {}
-variable "fingerprint" {}
-variable "private_key_path" {}
-variable "compartment_ocid" {}
-variable "region" {}
-variable "private_key_oci" {}
+variable "tenancy_ocid" {
+  default = "ocid1.compartment.oc1..aaaaaaaa7lgfrrpo3awm24dxnnz54khj77krfx23lbnyzr6p2quscyylv5oa"
+  #default = "ocid1.tenancy.oc1..aaaaaaaawquag7eeulmm6e2yoykcvigene6"
+}
+#variable "user_ocid" {}
+#variable "fingerprint" {}
+#variable "private_key_path" {}
+variable "compartment_ocid" {
+  default = "ocid1.compartment.oc1..aaaaaaaa7lgfrrpo3awm24dxnnz54khj77krfx23lbnyzr6p2quscyylv5oa"
+}
+#variable "region" {}
+#variable "private_key_oci" {}
 variable "public_key_oci" {}
+
+
 
 variable "VCN-CIDRs" {
   type    = list(string)
@@ -13,7 +20,7 @@ variable "VCN-CIDRs" {
   #  default = ["10.0.0.0/16","192.168.0.0/24"] 
 }
 
-variable "BackendSubnet-CIDR" {
+variable "BackendSubnet_prueba-CIDR" {
   #  default = "192.168.0.0/24"
   default = "192.168.0.0/30"
 }

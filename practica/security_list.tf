@@ -1,5 +1,5 @@
 resource "oci_core_security_list" "SecurityList1_prueba" {
-  compartment_id = oci_identity_compartment.Compartment.id
+  compartment_id = var.compartment_ocid
   display_name   = "SecurityList_prueba"
   vcn_id         = oci_core_virtual_network.VCN.id
 
@@ -27,7 +27,7 @@ resource "oci_core_security_list" "SecurityList1_prueba" {
 }
 
 resource "oci_core_security_list" "SecurityList2_prueba" {
-  compartment_id = oci_identity_compartment.Compartment.id
+  compartment_id = var.compartment_ocid
   display_name   = "SecurityListPrueba"
   vcn_id         = oci_core_virtual_network.VCN.id
 

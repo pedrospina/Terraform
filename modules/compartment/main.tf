@@ -11,10 +11,11 @@ locals {
 
 resource "oci_identity_compartment" "main" {
 #Required
-compartment_id = data.oci_identity_compartments_tech.compartments[0].i
+
+compartment_id = data.oci_identity_compartments.tech.compartments[0].id
 description = "Este es el primer compartment"
 name = var.cmp_name
-
+enable_delete = "true"
 
 #Optional
 freeform_tags = local.merged_freeform_tags

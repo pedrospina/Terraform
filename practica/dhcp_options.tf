@@ -1,5 +1,5 @@
 resource "oci_core_dhcp_options" "DhcpOptions1_prueba" {
-  compartment_id = oci_identity_compartment.Compartment.id
+  compartment_id = var.compartment_ocid
   vcn_id         = oci_core_virtual_network.VCN.id
   display_name   = "DHCPOptions1_prueba"
 
